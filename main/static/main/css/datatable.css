@@ -1,0 +1,20 @@
+th,
+td {
+    padding: 15px;
+    border-bottom: 2px solid #dee2e6;
+    font-size: 13px;
+}
+
+th {
+    font-weight: bold;
+}
+
+thead {
+    background-color: #53677b;
+    color: #ffffff;
+}
+
+a {
+    color: #007bff;
+    transition: color 0.3s ease;
+}

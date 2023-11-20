@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Patients All Data{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'main/css/datatable.css' %}">
+
+
+{% endblock css %}
+
+{% block body %}
+
+
+<h2 class="mb-3 text-center">CT Scans- MVision AI</h2>
+<div class="table-responsive">
+
+    <table id="datatable" class="table table-bordered hover table-striped">
+        <thead>
+            <tr>
+                <th>Patient Id</th>
+                <th>For UID</th>
+                <th>Modality</th>
+                <th>Series UID</th>
+                <th>N Files</th>
+                <th>Study ID</th>
+                <th>Study Instance UID</th>
+                <th>Study Description</th>
+                <th>Series Number</th>
+                <th>Image Comments</th>
+                <th>Body Part Examined</th>
+                <th>Protocol Name</th>
+                <th>Patient Position</th>
+                <th>Image Orientation Patient</th>
+                <th>Patient Sex</th>
+                <th>Patient Age</th>
+                <th>Patient Weight</th>
+                <th>Manufacturer</th>
+                <th>Manufacturer Model Name</th>
+                <th>Study Date</th>
+                <th>Study Time</th>
+                <th>Series Date</th>
+                <th>Series Time</th>
+                <th>Content Date</th>
+                <th>Content Time</th>
+                <th>Pixel Data Characteristics</th>
+                <th>Patient Exam Characteristics</th>
+                <th>Modality Specific</th>
+                <th>Implementation Specific</th>
+                <th>Shape</th>
+                <th>Spacing</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data %}
+            <tr>
+                <td>
+                    <a href="{% url 'patient_detail' patient_id=item.patient_id %}">{{ item.patient_id }}</a>
+                </td>
+                <td>{{ item.for_uid }}</td>
+                <td>{{ item.modality }}</td>
+                <td>{{ item.series_uid }}</td>
+                <td>{{ item.n_files }}</td>
+                <td>{{ item.study_id }}</td>
+                <td>{{ item.study_instance_uid }}</td>
+                <td>{{ item.study_description }}</td>
+                <td>{{ item.series_number }}</td>
+                <td>{{ item.image_comments }}</td>
+                <td>{{ item.body_part_examined }}</td>
+                <td>{{ item.protocol_name }}</td>
+                <td>{{ item.patient_position }}</td>
+                <td>{{ item.image_orientation_patient }}</td>
+                <td>{{ item.patient_sex }}</td>
+                <td>{{ item.patient_age }}</td>
+                <td>{{ item.patient_weight }}</td>
+                <td>{{ item.manufacturer }}</td>
+                <td>{{ item.manufacturer_model_name }}</td>
+                <td>{{ item.study_date }}</td>
+                <td>{{ item.study_time }}</td>
+                <td>{{ item.series_date }}</td>
+                <td>{{ item.series_time }}</td>
+                <td>{{ item.content_date }}</td>
+                <td>{{ item.content_time }}</td>
+                <td>{{ item.pixel_data_characteristics }}</td>
+                <td>{{ item.patient_exam_characteristics }}</td>
+                <td>{{ item.modality_specific }}</td>
+                <td>{{ item.implementation_specific }}</td>
+                <td>{{ item.shape }}</td>
+                <td>{{ item.spacing }}</td>
+                <!-- Access other fields as needed -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+   <script src="{% static 'main/js/datatable.js' %}"></script>
+{% endblock body %}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Patient Detail - {{ patient.patient_id }}{% endblock %}
+
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'main/css/detail.css' %}">
+{% endblock css %}
+
+{% block body %}
+<div class="text-center">
+<h2>Patient Detail</h2>
+<p>Patient ID: {{ patient.patient_id }}</p>
+{% if patient.image_path %}
+        <img src="{{ patient.image_path }}" alt="Patient Image">
+    {% else %}
+        <p>No image available</p>
+    {% endif %}
+</div>
+<br>
+<ul>
+    <li><strong>For UID:</strong> {{ patient.for_uid }}</li>
+    <li><strong>Modality:</strong> {{ patient.modality }}</li>
+    <li><strong>Series UID:</strong> {{ patient.series_uid }}</li>
+    <li><strong>Number of Files:</strong> {{ patient.n_files }}</li>
+    <li><strong>Study ID:</strong> {{ patient.study_id }}</li>
+    <li><strong>Study Instance UID:</strong> {{ patient.study_instance_uid }}</li>
+    <li><strong>Study Description:</strong> {{ patient.study_description }}</li>
+    <li><strong>Series Number:</strong> {{ patient.series_number }}</li>
+    <li><strong>Image Comments:</strong> {{ patient.image_comments }}</li>
+    <li><strong>Body Part Examined:</strong> {{ patient.body_part_examined }}</li>
+    <li><strong>Protocol Name:</strong> {{ patient.protocol_name }}</li>
+    <li><strong>Patient Position:</strong> {{ patient.patient_position }}</li>
+    <li><strong>Image Orientation Patient:</strong> {{ patient.image_orientation_patient }}</li>
+
+
+    <li><strong>Patient Sex:</strong> {{ patient.patient_sex }}</li>
+    <li><strong>Patient Age:</strong> {{ patient.patient_age }}</li>
+    <li><strong>Patient Weight:</strong> {{ patient.patient_weight }}</li>
+    <li><strong>Manufacturer:</strong> {{ patient.manufacturer }}</li>
+    <li><strong>Manufacturer Model Name:</strong> {{ patient.manufacturer_model_name }}</li>
+    <li><strong>Study Date:</strong> {{ patient.study_date }}</li>
+    <li><strong>Study Time:</strong> {{ patient.study_time }}</li>
+    <li><strong>Series Date:</strong> {{ patient.series_date }}</li>
+    <li><strong>Series Time:</strong> {{ patient.series_time }}</li>
+    <li><strong>Content Date:</strong> {{ patient.content_date }}</li>
+    <li><strong>Content Time:</strong> {{ patient.content_time }}</li>
+    <li><strong>Pixel Data Characteristics:</strong> {{ patient.pixel_data_characteristics }}</li>
+    <li><strong>Patient Exam Characteristics:</strong> {{ patient.patient_exam_characteristics }}</li>
+    <li><strong>Modality Specific:</strong> {{ patient.modality_specific }}</li>
+    <li><strong>Implementation Specific:</strong> {{ patient.implementation_specific }}</li>
+    <li><strong>Shape:</strong> {{ patient.shape }}</li>
+    <li><strong>Spacing:</strong> {{ patient.spacing }}</li>
+</ul>
+
+{% endblock body %}
