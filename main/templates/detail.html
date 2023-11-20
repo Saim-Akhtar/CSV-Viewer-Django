@@ -9,8 +9,11 @@
 {% endblock css %}
 
 {% block body %}
+{% if patient %}
+<div>
 <div class="text-center">
 <h2>Patient Detail</h2>
+
 <p>Patient ID: {{ patient.patient_id }}</p>
 {% if patient.image_path %}
         <img src="{{ patient.image_path }}" alt="Patient Image">
@@ -53,5 +56,9 @@
     <li><strong>Shape:</strong> {{ patient.shape }}</li>
     <li><strong>Spacing:</strong> {{ patient.spacing }}</li>
 </ul>
+</div>
+{% else %}
+    <p class="text-center">No patient record found.</p>
+{% endif %}
 
 {% endblock body %}
